@@ -17,6 +17,7 @@ pygame.display.set_caption('Gaming')
 pygame.time.set_timer(pygame.USEREVENT, random.randint(500, 1500))
 
 f1 = pygame.font.Font(None, 36)
+f2 = pygame.font.Font(None, 150)
 
 
 
@@ -34,7 +35,7 @@ while True:
 
 
 
-    game_event.updating(screen, gun, bg, enemies, bullets, f1)
+    game_event.updating(screen, gun, bg, enemies, bullets, f1, f2, WIDTH, HEIGHT)
 
 
 

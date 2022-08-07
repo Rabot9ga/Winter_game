@@ -20,9 +20,9 @@ class Gun():
 
     def mov(self):
         if self.right and self.rect.x<self.screen_rect.width-self.rect.width:
-            self.rect.centerx+=10
+            self.rect.centerx+=20
         elif self.left and self.rect.x>0:
-            self.rect.centerx-=10
+            self.rect.centerx-=20
 
 
 

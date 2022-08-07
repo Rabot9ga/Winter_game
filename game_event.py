@@ -6,6 +6,7 @@ import random
 
 
 SCORE=0
+LIFE = 3
 def polling(gun, screen, bullets, enemies):
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
@@ -29,8 +30,8 @@ def polling(gun, screen, bullets, enemies):
             enemies.add(Enemy(screen))
 
 
-def updating(screen, gun, bg, enemies, bullets, f1):
-    global SCORE
+def updating(screen, gun, bg, enemies, bullets, f1, f2, width, height):
+    global SCORE, LIFE
     bg.out()
     enemies.draw(screen)
     enemies.update()
@@ -45,9 +46,22 @@ def updating(screen, gun, bg, enemies, bullets, f1):
                 enemy.kill()
                 bullet.kill()
                 SCORE+=1
+        if enemy.rect.centery==gun.rect.centery:
+            LIFE-=1
+        if LIFE<1:
+            text3 = f2.render('YOU LOST', True, (200, 10, 10))
+            txt=text3.get_rect()
+            txt.centerx=width//2
+            txt.centery=height//2
+            screen.blit(text3, txt)
+
+
+
 
     text1 = f1.render('Your score: '+str(SCORE), True, (200, 10, 10))
     screen.blit(text1, (800, 0))
+    text2 = f1.render('Your life: ' + str(LIFE if LIFE>0 else 0), True, (200, 10, 10))
+    screen.blit(text2, (800, 25))
 
     pygame.display.update()
 

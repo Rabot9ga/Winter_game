@@ -1,3 +1,3 @@
 "# neek" 
 
-"This is my own game"
+"My game, that i learnt how to work in pygame"
