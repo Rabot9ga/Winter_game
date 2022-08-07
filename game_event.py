@@ -7,6 +7,7 @@ import random
 
 SCORE=0
 LIFE = 3
+GAME_OVER=False
 def polling(gun, screen, bullets, enemies):
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
@@ -31,7 +32,7 @@ def polling(gun, screen, bullets, enemies):
 
 
 def updating(screen, gun, bg, enemies, bullets, f1, f2, width, height):
-    global SCORE, LIFE
+    global SCORE, LIFE, GAME_OVER
     bg.out()
     enemies.draw(screen)
     enemies.update()
@@ -54,6 +55,7 @@ def updating(screen, gun, bg, enemies, bullets, f1, f2, width, height):
             txt.centerx=width//2
             txt.centery=height//2
             screen.blit(text3, txt)
+            GAME_OVER=True
 
 
 

@@ -33,6 +33,8 @@ while True:
 
     game_event.polling(gun, screen, bullets, enemies)
 
+    if game_event.GAME_OVER:
+        continue
 
 
     game_event.updating(screen, gun, bg, enemies, bullets, f1, f2, WIDTH, HEIGHT)
