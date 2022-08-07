@@ -1,5 +1,5 @@
 import pygame
-import random
+
 class Bull(pygame.sprite.Sprite):
     def __init__(self, screen):
         pygame.sprite.Sprite.__init__(self)
@@ -7,7 +7,7 @@ class Bull(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
         self.screen=screen
         self.screen_rect=screen.get_rect()
-        self.rect.centery=self.screen_rect.height+self.rect.height
+        self.rect.centery=self.screen_rect.height-self.rect.height
         self.screen=screen
         self.flag=False
 
