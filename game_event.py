@@ -1,10 +1,10 @@
 import pygame
 import sys
-import some_gun
+from some_bullet import Bull
 
 
 
-def polling(gun, screen):
+def polling(gun, screen, bullets):
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             sys.exit()
@@ -13,6 +13,12 @@ def polling(gun, screen):
                 gun.right=True
             elif i.key == pygame.K_LEFT:
                 gun.left=True
+            elif i.key ==pygame.K_SPACE:
+                bullet=Bull(screen)
+                bullet.rect.centerx=gun.rect.centerx
+                bullet.flag=True
+                bullets.add(bullet)
+                print(len(bullets))
         elif i.type == pygame.KEYUP:
             if i.key == pygame.K_RIGHT:
                 gun.right=False
@@ -20,13 +26,17 @@ def polling(gun, screen):
                 gun.left=False
 
 
-def updating(screen, gun, bg, enemy):
+def updating(screen, gun, bg, enemy, bullets):
 
     bg.out()
     enemy.output()
     enemy.mov()
+    bullets.draw(screen)
+    bullets.update()
     gun.mov()
     gun.output()
+
+
 
     pygame.display.update()
 
